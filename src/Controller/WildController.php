@@ -11,12 +11,13 @@ class WildController extends AbstractController
 {
 
   /**
-   * @Route("/wild", name="wild_index")
+   * @Route("/wild_serie", name="wild_index")
+   * @return Response
    */
   public function index(): Response
   {
-    return $this->render('/wild/index.html.twig', [
-      'website' => 'Wild Séries',
+    return $this->render('/Wild/index.html.twig', [
+      'pageTitle' => 'Wild Séries'
     ]);
   }
 

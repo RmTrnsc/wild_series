@@ -1,3 +1,40 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=BenchNine|Kanit:100i,400,700&display=swap&subset=latin-ext');
+
+//bootsratp color
+$colors: (
+        "blue": $blue,
+        "cyan": $cyan,
+        "red": $red,
+        "green": $green,
+);
+
+//color lighten
+$blue_lighten: lighten(color("blue"), 20%);
+$cyan_lighten: lighten(color("cyan"), 20%);
+$red_lighten: lighten(color("red"), 20%);
+$green_lighten: lighten(color("green"), 0%);
+
+//color darken
+$blue_darken: darken(color("blue"), 15%);
+$cyan_darken: darken(color("cyan"), 15%);
+$red_darken: darken(color("red"), 15%);
+$green_darken: darken(color("green"), 15%);
+
+
 body {
-    background-color: lightgray;
+  background-color: lightgray;
+  font-family: 'BenchNine', sans-serif;
+
+  header {
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    letter-spacing: .5px;
+    position: sticky;
+    padding: 10px;
+  }
+
+  h1 {
+    color: $blue_darken;
+  }
 }
