@@ -10,12 +10,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
   /**
-   * @Route(name="app_index")
+   * @Route("/", name="app_index", defaults={"title":"Bienvenue !"})
+   * @param string $title
    * @return Response
    */
-  public function index(): Response
+  public function index(string $title): Response
   {
-    return $this->render('/home.html.twig');
+    return $this->render('/home.html.twig', [
+      'pageTitle' => $title
+    ]);
   }
 
 }
