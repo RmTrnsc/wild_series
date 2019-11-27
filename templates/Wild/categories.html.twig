@@ -8,8 +8,7 @@
 
     <div class="row">
       <div class="col">
-        <h1>{{ pageTitle }}</h1>
-        <h2>Toutes les catégories de la table program : </h2>
+        <h2>Toutes les catégories : </h2>
       </div>
     </div>
 
@@ -29,8 +28,11 @@
     {% endfor %}
 
     <div class="row text-center m-2">
-      <div class="col-lg-12">
+      <div class="col-lg-6">
         <a href="{{ path('app_index') }}">Retour à l'accueil</a>
+      </div>
+      <div class="col-lg-6">
+        <a href="{{ path('wild_index') }}">Voir toutes les séries</a>
       </div>
     </div>
 
