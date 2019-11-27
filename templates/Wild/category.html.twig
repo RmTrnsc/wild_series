@@ -15,7 +15,10 @@
 
     <div class="card mt-2">
       <div class="card-title m-2">
-        <h3>{{ program.title }}</h3>
+        <h3>{{ loop.index }} / {{ program.title }}</h3>
+      </div>
+      <div class="card-text">
+        <p class="p-2">{{ program.summary }}</p>
       </div>
     </div>
 
