@@ -13,7 +13,7 @@ $colors: (
 $blue_lighten: lighten(color("blue"), 20%);
 $cyan_lighten: lighten(color("cyan"), 20%);
 $red_lighten: lighten(color("red"), 20%);
-$green_lighten: lighten(color("green"), 0%);
+$green_lighten: lighten(color("green"), 20%);
 
 //color darken
 $blue_darken: darken(color("blue"), 15%);
@@ -26,26 +26,37 @@ body {
   background-color: lightgray;
   font-family: 'BenchNine', sans-serif;
 
+  h1 {
+    color: $cyan_darken;
+  }
+
+  h2 {
+    color: $blue_darken;
+  }
+
   header {
+    margin-top: 6em;
     font-family: 'Kanit', sans-serif;
     letter-spacing: .5px;
-    position: sticky;
-    padding: 10px;
 
-    a {
-      font-size: 20px;
+    .navbar {
+      a {
+        font-size: 20px;
+      }
     }
   }
 
   .wrapperSlug, .wrapperIndex {
-    h1 {
-      color: $cyan_darken;
-    }
-    h2 {
-      color: $blue_darken;
-    }
     a {
+      text-decoration: none;
+      color: $red_darken;
       font-size: 24px;
+    }
+  }
+
+  .wrapperIndex {
+    .card-text {
+      font-size: 20px;
     }
   }
 }

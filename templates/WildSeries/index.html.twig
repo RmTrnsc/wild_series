@@ -2,9 +2,35 @@
 
 {% block body %}
 
-  <div class="wrapperIndex container-fluid">
+  <div class="wrapperIndex container">
+
     <h1 class="text-center mt-5">{{ pageTitle }}</h1>
-    <a href="{{ path('wild_series_show', {'slug':1}) }}">Show slug</a>
+    <h2 class="text-center">Toutes les séries de la table program : </h2>
+
+    {% for program in programs %}
+
+      <div class="card">
+        <div class="card-title m-2">
+          <h3>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h3>
+        </div>
+        <div class="card-text m-2">{{ program.summary }}</div>
+      </div>
+
+    {% else %}
+
+      Aucune série trouvée
+
+    {% endfor %}
+
+      <div class="row text-center m-2">
+        <div class="col-lg-6">
+          <a href="{{ path('wild_series_show', {'slug':1}) }}">Show slug</a>
+        </div>
+        <div class="col-lg-6">
+          <a href="{{ path('app_index') }}">Retour accueil</a>
+        </div>
+      </div>
+
   </div>
 
 {% endblock %}
