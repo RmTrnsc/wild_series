@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block body %}
+
+  <div class="wrapperIndex container">
+
+    <div class="row">
+      <div class="col">
+        <h1>{{ pageTitle }}</h1>
+        <h2>Toutes les catégories de la table program : </h2>
+      </div>
+    </div>
+
+    {% for category in categories %}
+
+      <div class="card mt-2">
+        <div class="card-title m-2">
+          <h3>{{ loop.index }} / {{ category.name }}</h3>
+          <a href="{{ path('show_category', {'categoryName': category.name}) }}">Voir les séries</a>
+        </div>
+      </div>
+
+    {% else %}
+
+      Aucune série trouvée
+
+    {% endfor %}
+
+    <div class="row text-center m-2">
+      <div class="col-lg-12">
+        <a href="{{ path('app_index') }}">Retour à l'accueil</a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}
