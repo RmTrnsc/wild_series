@@ -1,1 +1,10 @@
-<h1 class="text-center">slug : {{ slug }}</h1>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <div class="wrapperSlug container-fluid">
+    <h1 class="text-center mt-5">Slug : {{ slug }}</h1>
+    <a href="{{ path('wild_index') }}">Return wild series page</a>
+  </div>
+
+{% endblock %}

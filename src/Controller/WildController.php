@@ -11,6 +11,16 @@ class WildController extends AbstractController
 {
 
   /**
+   * @Route("/wild", name="wild_index")
+   */
+  public function index(): Response
+  {
+    return $this->render('WildSeries/index.html.twig', [
+      'pageTitle' => 'Wild Séries'
+    ]);
+  }
+
+  /**
    * @Route("/wild/show/{slug}", name="wild_series_show",
    * defaults={"slug":""}, requirements={"slug":"[a-z0-9\-]+"})
    * @param $slug
@@ -24,9 +34,9 @@ class WildController extends AbstractController
       $slug = str_replace('-', ' ', $slug);
       $slug = ucwords($slug);
     }
-    return $this->render('/WildSeries/index.html.twig', [
+    return $this->render('/WildSeries/show.html.twig', [
       'slug' => $slug,
-      'pageTitle' => "Wild Série"
+      'pageTitle' => 'Wild Séries'
     ]);
   }
 }

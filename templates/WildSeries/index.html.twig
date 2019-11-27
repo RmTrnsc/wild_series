@@ -2,8 +2,9 @@
 
 {% block body %}
 
-  <h1 class="text-center mt-5">{{ pageTitle }}</h1>
-
-    {% include '/WildSeries/show.html.twig' %}
+  <div class="wrapperIndex container-fluid">
+    <h1 class="text-center mt-5">{{ pageTitle }}</h1>
+    <a href="{{ path('wild_series_show', {'slug':1}) }}">Show slug</a>
+  </div>
 
 {% endblock %}

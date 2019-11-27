@@ -28,13 +28,21 @@ body {
 
   header {
     font-family: 'Kanit', sans-serif;
-    font-size: 20px;
     letter-spacing: .5px;
     position: sticky;
     padding: 10px;
+
+    a {
+      font-size: 20px;
+    }
   }
 
-  h1 {
-    color: $blue_darken;
+  .wrapperSlug, .wrapperIndex {
+    h1 {
+      color: $cyan_darken;
+    }
+    a {
+      font-size: 24px;
+    }
   }
 }
