@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+  {{ program.title }} / Saison : {{ id }}
+
+{% endblock %}
+
+{% block body %}
+
+
+  <div class="wrapperEpisode container">
+
+    {% for episode in episodes %}
+
+      <div class="card mt-2">
+        <div class="card-title m-2 d-flex align-items-baseline">
+          <h2 class="mr-2">Episode {{ episode.id }}</h2>
+          <h3>{{ episode.title }}</h3>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{ episode.synopsis }}</p>
+        </div>
+      </div>
+
+    {% endfor %}
+
+    <div class="row text-center m-2">
+      <div class="col-lg-12">
+        <a href="{{ path('show_program', {'programName': program.title}) }}">Retour aux saisons</a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

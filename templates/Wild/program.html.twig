@@ -16,7 +16,7 @@
         </div>
         <div class="card-body">
           <p class="card-text">{{ season.description }}</p>
-          <a href="{{ path('show_program', {'programName': program.title}) }}">Voir toutes les épisodes de la
+          <a href="{{ path('show_episodes', {'id': season.id }) }}">Voir toutes les épisodes de la
             saison</a>
         </div>
       </div>
