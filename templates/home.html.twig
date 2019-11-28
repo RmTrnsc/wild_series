@@ -2,6 +2,37 @@
 
 {% block body %}
 
-  <h1 class="text-center mt-5">{{ pageTitle }}</h1>
+  <div class="wrapperHome container-fluid">
+
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <h1 class="mt-2">{{ pageTitle }}</h1>
+      </div>
+    </div>
+
+    <div class="row">
+
+      {% for program in programs %}
+
+        <div class="col-lg-3">
+          <div class="card mt-2">
+            <div class="card-body">
+              <a href="{{ path('wild_show', {'slug': program.title}) }}">
+                <img class="card-img-top"
+                     src="{{ program.poster }}"
+                     alt="{{ program.title }}">
+              </a>
+              <div class="card-text text-center">
+                <a class="m-2" href="{{ path('wild_show', {'slug': program.title}) }}">En voir plus</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+
 
 {% endblock %}
