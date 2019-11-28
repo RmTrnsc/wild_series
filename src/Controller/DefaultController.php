@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
   /**
-   * @Route("/", name="app_index", defaults={"title":"Wild série"})
+   * @Route("/", name="app_index", defaults={"title":"Bienvenue sur le site Wild série"})
    * @param string $title
    * @return Response
    */
