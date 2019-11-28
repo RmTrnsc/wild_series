@@ -2,9 +2,9 @@
 
 {% block body %}
 
-  <div class="wrapperHome container-fluid">
+  <div class="wrapperHome container">
 
-    <div class="row text-center">
+    <div class="row">
       <div class="col-lg-12">
         <h1 class="mt-2">{{ pageTitle }}</h1>
       </div>
@@ -14,7 +14,7 @@
 
       {% for program in programs %}
 
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="card mt-2">
             <div class="card-body">
               <a href="{{ path('wild_show', {'slug': program.title}) }}">
