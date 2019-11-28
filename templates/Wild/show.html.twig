@@ -11,10 +11,12 @@
       <div class="media-body">
         <h1 class="text-center mt-1">{{ program.title }}</h1>
         <p>{{ program.summary }}</p>
-        <small class="text-muted">Categorie : {{ program.category.name }}</small>
+        <div class="d-flex flex-column ">
+          <small class="text-muted">Categorie : {{ program.category.name }}</small>
+          <a href="{{ path('show_program', {'programName': program.title}) }}">Voir toutes les saisons de la série</a>
+        </div>
       </div>
     </div>
-
     <a href="{{ path('wild_index') }}">Retour aux séries</a>
   </div>
 

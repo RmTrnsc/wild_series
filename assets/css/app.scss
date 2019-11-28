@@ -46,7 +46,7 @@ body {
     }
   }
 
-  .wrapperSlug, .wrapperIndex, .wrapperCategory {
+  .wrapperSlug, .wrapperIndex, .wrapperCategory, .wrapperProgram {
     a {
       text-decoration: none;
       color: $red_darken;
@@ -54,7 +54,7 @@ body {
     }
   }
 
-  .wrapperIndex, .wrapperCategory {
+  .wrapperIndex, .wrapperCategory, .wrapperProgram {
     .card {
       .card-title {
         h3 {

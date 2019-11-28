@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Program;
+use App\Entity\Season;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -66,10 +67,10 @@ class WildController extends AbstractController
 
   /**
    * @Route ("/wild/category/{categoryName<^[a-zA-Z0-9\-]+$>}", name="show_category")
-   * @param string $categoryName
+   * @param string|null $categoryName
    * @return Response
    */
-  public function showByCategory(string $categoryName): Response
+  public function showByCategory(?string $categoryName): Response
   {
     if (!$categoryName) {
       throw $this->createNotFoundException(
@@ -79,14 +80,14 @@ class WildController extends AbstractController
 
     $category = $this->getDoctrine()
       ->getRepository(Category::class)
-      ->findOneBy(['name' =>mb_strtolower($categoryName)]);
+      ->findOneBy(['name' => mb_strtolower($categoryName)]);
     if (!$category) {
       throw $this->createNotFoundException('Aucune catégorie trouvée');
     }
 
     $programs = $this->getDoctrine()
       ->getRepository(Program::class)
-      ->findBy(['category' => $category], ['id' => 'desc'], '3','0');
+      ->findBy(['category' => $category], ['id' => 'desc'], '3', '0');
     if (!$programs) {
       throw $this->createNotFoundException(
         'Aucune série dans la catégorie ' . $categoryName . ' trouvée dans la table'
@@ -118,6 +119,31 @@ class WildController extends AbstractController
     return $this->render('Wild/categories.html.twig', [
       'pageTitle' => 'Catégories',
       'categories' => $categories
+    ]);
+  }
+
+  /**
+   * @Route("/program/{programName}", defaults={"programName" = null}, name="show_program")
+   * @param string|null $programName
+   * @return Response
+   */
+  public function showByProgram(?string $programName): Response
+  {
+    if (!$programName) {
+      throw  $this->createNotFoundException('No program has been sent to find a program in program\'s table.');
+    }
+    $program = $this->getDoctrine()
+      ->getRepository(Program::class)
+      ->findOneBy(['title' => $programName]);
+
+    $seasons = $this->getDoctrine()
+      ->getRepository(Season::class)
+      ->findBy(['program' => $program]);
+
+    return $this->render('Wild/program.html.twig', [
+      'programName' => $programName,
+      'program' => $program,
+      'seasons' => $seasons
     ]);
   }
 }
