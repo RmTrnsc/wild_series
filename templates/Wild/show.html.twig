@@ -10,9 +10,9 @@
       <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
       <div class="media-body">
         <h1 class="text-center mt-1">{{ program.title }}</h1>
+        <small class="text-muted">Categorie : {{ program.category.name }}</small>
         <p>{{ program.summary }}</p>
         <div class="d-flex flex-column ">
-          <small class="text-muted">Categorie : {{ program.category.name }}</small>
           <a href="{{ path('show_program', {'programName': program.title}) }}">Voir toutes les saisons de la série</a>
         </div>
       </div>
