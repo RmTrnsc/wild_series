@@ -193,9 +193,11 @@ class WildController extends AbstractController
   public function ShowEpisode(Episode $episode): Response
   {
     $episode->getSeason()->getProgram();
+    $picture = $episode->getImages();
 
     return $this->render('Wild/episode.html.twig', [
       'episode' => $episode,
+      'picture' => $picture
     ]);
   }
 }

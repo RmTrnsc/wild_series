@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Wild série{% endblock %}</title>
-    <link rel="stylesheet" href="build/css/app.css">
-    {% block stylesheets %}
-      {{ encore_entry_link_tags('app') }}
-    {% endblock %}
-  </head>
-  <body>
-    <header>
-      {% include 'Navbar/navbar.html.twig' %}
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Wild série{% endblock %}</title>
+  {#  fancybox  #}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
 
-    {% block body %}{% endblock %}
+  <link rel="stylesheet" href="build/css/app.css">
+  {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+  {% endblock %}
+</head>
+<body>
+<header>
+  {% include 'Navbar/navbar.html.twig' %}
+</header>
 
-    {% block javascripts %}
-      {{ encore_entry_script_tags('app') }}
-    {% endblock %}
-  </body>
+{% block body %}{% endblock %}
+
+{% block javascripts %}
+  {{ encore_entry_script_tags('app') }}
+{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+</body>
 </html>
