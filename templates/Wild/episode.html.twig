@@ -1,36 +1,75 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-
-  {{ program.title }} / Saison : {{ id }}
-
-{% endblock %}
+{% block title %}{{ episode.title }}{% endblock %}
 
 {% block body %}
 
-
   <div class="wrapperEpisode container">
 
-    {% for episode in episodes %}
-
-      <div class="card mt-2">
-        <div class="card-title m-2 d-flex align-items-baseline">
-          <h2 class="mr-2">Episode {{ episode.number }}</h2>
-          <h3>{{ episode.title }}</h3>
-        </div>
-        <div class="card-body">
-          <p class="card-text">{{ episode.synopsis }}</p>
-        </div>
+    <a href="{{ path('show_program', {'programName': episode.season.program.title}) }}">
+      <h1><u>{{ episode.season.program.title }}</u></h1>
+    </a>
+    <a href="{{ path('show_episodes', {'id': episode.season.id}) }}">
+      <h2><u>Saison {{ episode.season.id }} - Année {{ episode.season.year }}</u></h2>
+    </a>
+    <h3>Episode {{ episode.number }}</h3>
+    <div class="card mt-2">
+      <div class="card-title m-2 d-flex align-items-baseline">
+        <h3>{{ episode.title }}</h3>
       </div>
-
-    {% endfor %}
-
-    <div class="row text-center m-2">
-      <div class="col-lg-12">
-        <a href="{{ path('show_program', {'programName': program.title}) }}">Retour aux saisons</a>
+      <div class="card-body">
+        <p class="card-text">{{ episode.synopsis }}</p>
       </div>
     </div>
 
-  </div>
 
+{#    <!-- Grid row -->#}
+{#    <div class="gallery mt-5" id="gallery">#}
+
+{#      <!-- Grid column -->#}
+{#      <div class="mb-3 pics">#}
+{#        <img class="img-fluid" src="{{ episode.picture }}" alt="Card image cap">#}
+{#      </div>#}
+{#      <!-- Grid column -->#}
+
+{#      <!-- Grid column -->#}
+{#      <div class="mb-3 pics">#}
+{#        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">#}
+{#      </div>#}
+{#      <!-- Grid column -->#}
+
+{#      <!-- Grid column -->#}
+{#      <div class="mb-3 pics">#}
+{#        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">#}
+{#      </div>#}
+{#      <!-- Grid column -->#}
+
+{#      <!-- Grid column -->#}
+{#      <div class="mb-3 pics">#}
+{#        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">#}
+{#      </div>#}
+{#      <!-- Grid column -->#}
+
+{#      <!-- Grid column -->#}
+{#      <div class="mb-3 pics">#}
+{#        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">#}
+{#      </div>#}
+{#      <!-- Grid column -->#}
+
+{#      <!-- Grid column -->#}
+{#      <div class="mb-3 pics">#}
+{#        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">#}
+{#      </div>#}
+{#      <!-- Grid column -->#}
+
+{#    </div>#}
+{#    <!-- Grid row -->#}
+
+{#    <div class="row text-center m-2">#}
+{#      <div class="col-lg-12">#}
+{#        <a href="{{ path('show_episodes', {'id': episode.season.id }) }}">Retour sur tous les épisodes</a>#}
+{#      </div>#}
+{#    </div>#}
+
+  </div>
 {% endblock %}

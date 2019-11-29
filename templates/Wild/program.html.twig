@@ -7,12 +7,14 @@
 
   <div class="wrapperProgram container">
 
+    <h1><u>{{ programName }}</u></h1>
+
       {% for season in seasons %}
 
         <div class="card mt-2">
           <div class="card-title m-2 d-flex align-items-baseline">
-            <h1 class="mr-2">Saison : {{ loop.index }}</h1>
-            <h3>Année : {{ season.year }}</h3>
+            <h2 class="mr-2">Saison {{ loop.index }} -</h2>
+            <h3>Année {{ season.year }}</h3>
           </div>
           <div class="card-body">
             <p class="card-text">{{ season.description }}</p>

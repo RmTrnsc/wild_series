@@ -51,6 +51,7 @@ body {
   .wrapperIndex,
   .wrapperCategory,
   .wrapperProgram,
+  .wrapperEpisodes,
   .wrapperEpisode {
     a {
       text-decoration: none;
@@ -60,12 +61,16 @@ body {
   }
 
   .wrapperSlug {
-    img{
+    img {
       width: 30rem;
     }
   }
 
-  .wrapperIndex, .wrapperCategory, .wrapperProgram, .wrapperEpisode {
+  .wrapperIndex,
+  .wrapperCategory,
+  .wrapperProgram,
+  .wrapperEpisodes,
+  .wrapperEpisode {
     .card {
       .card-title {
         h3 {
@@ -87,5 +92,19 @@ body {
     small {
       font-size: 18px;
     }
+  }
+
+  .wrapperEpisode {
+    .gallery {
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3; }
+    .gallery .pics {
+      -webkit-transition: all 350ms ease;
+      transition: all 350ms ease; }
+    .gallery .animation {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1); }
   }
 }
