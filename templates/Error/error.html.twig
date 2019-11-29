@@ -46,20 +46,21 @@
     text-align: center;
   }
 
-  .message {
+  #message, #message a {
+    margin: 1em;
     color: #16a085;
     font-size: 24px;
   }
 
-  .message:after {
+  #message:after {
     content: "]";
   }
 
-  .message:before {
+  #message:before {
     content: "[";
   }
 
-  .message:after, .message:before {
+  #message:after, #message:before {
 
     color: #16a085;
     font-size: 20px;
@@ -118,6 +119,8 @@
 
 </style>
 
+<title>Aucune page</title>
+
 <div id="container">
 
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -156,7 +159,10 @@
     </g>
 </svg>
 
-  <div class="message">
+  <div id="message">
     Aucune saison pour le moment, c'est en cours de remplissage
+  </div>
+  <div id="message">
+    <a href="/wild">Retour aux séries</a>
   </div>
 </div>
