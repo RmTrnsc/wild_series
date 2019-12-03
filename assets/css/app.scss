@@ -53,7 +53,8 @@ body {
   .wrapperProgram,
   .wrapperEpisodes,
   .wrapperEpisode,
-  .wrapperProgramArray {
+  .wrapperProgramIndex,
+  .wrapperProgramShow {
     a {
       text-decoration: none;
       color: $red_darken;
@@ -112,7 +113,7 @@ body {
     }
   }
 
-  .wrapperProgramArray {
+  .wrapperProgramIndex {
     th, td {
       font-size: 18px;
     }
