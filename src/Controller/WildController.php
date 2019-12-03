@@ -145,8 +145,8 @@ class WildController extends AbstractController
       ->getRepository(Season::class)
       ->findBy(['program' => $program]);
 
-    if (!$seasons || !$program) {
-      return $this->render('Error/error.html.twig');
+    if (!$seasons) {
+      throw $this->createNotFoundException('Aucune saison trouvée');
     }
 
     return $this->render('Wild/program.html.twig', [
