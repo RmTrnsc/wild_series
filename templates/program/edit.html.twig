@@ -3,11 +3,21 @@
 {% block title %}Edit Program{% endblock %}
 
 {% block body %}
+  <div class="container">
     <h1>Edit Program</h1>
-
     {{ include('program/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="row text-center">
+      <div class="col-lg-6">
+        <a href="{{ path('program_index') }}">back to list</a>
+      </div>
+      <div class="col-lg-6">
+        {{ include('program/_delete_form.html.twig') }}
+      </div>
+    </div>
 
-    <a href="{{ path('program_index') }}">back to list</a>
+  </div>
+  </div>
+  </div>
 
-    {{ include('program/_delete_form.html.twig') }}
+
 {% endblock %}
