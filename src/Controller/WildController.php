@@ -67,7 +67,7 @@ class WildController extends AbstractController
   }
 
   /**
-   * @Route ("/wild/category/{categoryName<^[a-zA-Z0-9\-]+$>}", name="show_category")
+   * @Route ("/wild/category/{categoryName<^[a-zA-Z0-9\-' ']+$>}", name="show_category")
    * @param string|null $categoryName
    * @return Response
    */
@@ -146,7 +146,7 @@ class WildController extends AbstractController
       ->findBy(['program' => $program]);
 
     if (!$seasons || !$program) {
-      return $this->render('Error/error.html.twig');
+      return $this->render('Error/_error.html.twig');
     }
 
     return $this->render('Wild/program.html.twig', [
