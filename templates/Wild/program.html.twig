@@ -9,6 +9,8 @@
 
     <h1><u>{{ programName }}</u></h1>
 
+    {% if seasons %}
+
       {% for season in seasons %}
 
         <div class="card mt-2">
@@ -24,6 +26,12 @@
         </div>
 
       {% endfor %}
+
+    {% else %}
+
+      {% include 'Error/_error.html.twig' %}
+
+    {% endif %}
 
     <div class="row text-center m-2">
       <div class="col-lg-12">
