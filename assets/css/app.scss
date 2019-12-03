@@ -52,17 +52,12 @@ body {
   .wrapperCategory,
   .wrapperProgram,
   .wrapperEpisodes,
-  .wrapperEpisode {
+  .wrapperEpisode,
+  .wrapperProgramArray {
     a {
       text-decoration: none;
       color: $red_darken;
       font-size: 24px;
-    }
-  }
-
-  .wrapperSlug {
-    img {
-      width: 30rem;
     }
   }
 
@@ -89,6 +84,10 @@ body {
       font-size: 20px;
     }
 
+    img {
+      width: 30rem;
+    }
+
     small {
       font-size: 18px;
     }
@@ -98,13 +97,24 @@ body {
     .gallery {
       -webkit-column-count: 3;
       -moz-column-count: 3;
-      column-count: 3; }
+      column-count: 3;
+    }
+
     .gallery .pics {
       -webkit-transition: all 350ms ease;
-      transition: all 350ms ease; }
+      transition: all 350ms ease;
+    }
+
     .gallery .animation {
       -webkit-transform: scale(1);
       -ms-transform: scale(1);
-      transform: scale(1); }
+      transform: scale(1);
+    }
+  }
+
+  .wrapperProgramArray {
+    th, td {
+      font-size: 18px;
+    }
   }
 }
