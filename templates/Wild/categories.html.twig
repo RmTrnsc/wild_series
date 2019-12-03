@@ -12,17 +12,23 @@
       </div>
     </div>
 
-    {% for category in categories %}
+    <div class="row text-center">
 
-      <div class="card mt-2">
-        <div class="card-title m-2">
-          <h3>{{ category.name }}</h3>
-          <a href="{{ path('show_category', {'categoryName': category.name}) }}">Voir les séries</a>
+      {% for category in categories %}
+
+        <div class="col-lg-4">
+          <div class="card mt-2">
+            <div class="card-title m-2">
+              <h3>{{ category.name }}</h3>
+              <a href="{{ path('show_category', {'categoryName': category.name}) }}">Voir les séries</a>
+            </div>
+          </div>
         </div>
-      </div>
 
 
-    {% endfor %}
+      {% endfor %}
+
+    </div>
 
     <div class="row text-center m-2">
       <div class="col-lg-4">
