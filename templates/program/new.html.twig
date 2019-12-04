@@ -3,9 +3,17 @@
 {% block title %}New Program{% endblock %}
 
 {% block body %}
+
+  <div class="wrapperProgramNew container">
+
     <h1>Create new Program</h1>
+    <div class="row">
+      <div class="col">
+        {{ include('program/_form.html.twig') }}
+        <a href="{{ path('program_index') }}">back to list</a>
+      </div>
+    </div>
 
-    {{ include('program/_form.html.twig') }}
+  </div>
 
-    <a href="{{ path('program_index') }}">back to list</a>
 {% endblock %}
