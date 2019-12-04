@@ -56,6 +56,9 @@ body {
   .wrapperProgramIndex,
   .wrapperProgramShow,
   .wrapperEpisodeIndex,
+  .wrapperEpisodeShow,
+  .wrapperEpisodeEdit,
+  .wrapperEpisodeNew,
   .wrapperSeasonIndex {
     a {
       text-decoration: none;
@@ -116,10 +119,12 @@ body {
   }
 
   .wrapperProgramIndex,
+  .wrapperProgramShow,
   .wrapperEpisodeIndex,
+  .wrapperEpisodeShow,
   .wrapperSeasonIndex {
     th, td {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
 }
