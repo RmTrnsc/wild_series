@@ -10,7 +10,7 @@
 
     <div class="row">
       <div class="col table-responsive">
-          <table class="table table-light table-striped table-bordered table-hover">
+        <table class="table table-light table-striped table-bordered table-hover">
           <thead class="thead-dark">
           <tr>
             <th>Id</th>
@@ -42,7 +42,13 @@
       </div>
     </div>
 
-    <a href="{{ path('episode_new') }}">Create new</a>
+    <div class="row text-center">
+      <div class="col">
+        <a href="{{ path('episode_new') }}">
+          <button class="btn btn-outline-info">Create new</button>
+        </a>
+      </div>
+    </div>
 
   </div>
 
