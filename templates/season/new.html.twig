@@ -3,9 +3,17 @@
 {% block title %}New Season{% endblock %}
 
 {% block body %}
+
+  <div class="wrapperSeasonNew container">
+
     <h1>Create new Season</h1>
+    <div class="row">
+      <div class="col">
+        {{ include('season/_form.html.twig') }}
+        <a href="{{ path('season_index') }}">back to list</a>
+      </div>
+    </div>
 
-    {{ include('season/_form.html.twig') }}
+  </div>
 
-    <a href="{{ path('season_index') }}">back to list</a>
 {% endblock %}

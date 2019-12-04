@@ -61,7 +61,10 @@ body {
   .wrapperEpisodeShow,
   .wrapperEpisodeEdit,
   .wrapperEpisodeNew,
-  .wrapperSeasonIndex {
+  .wrapperSeasonIndex,
+  .wrapperSeasonShow,
+  .wrapperSeasonEdit,
+  .wrapperSeasonNew {
     a {
       text-decoration: none;
       color: $red_darken;
