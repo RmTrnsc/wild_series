@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraint as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,15 +11,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
-  /**@ORM\Id()
+  /**
+   * @ORM\Id()
    * @ORM\GeneratedValue()
    * @ORM\Column(type="integer")
    * @var int
    */
   private $id;
 
-  /**@ORM\Column(type="string", length=190)
-   * @Assert\NotBlank()
+  /**
+   * @ORM\Column(type="string", length=190)
    * @var
    */
   private $name;
