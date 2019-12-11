@@ -67,7 +67,7 @@ class WildController extends AbstractController
   }
 
   /**
-   * @Route ("/wild/category/{categoryName<^[a-zA-Z0-9\-]+$>}", name="show_category")
+   * @Route ("/wild/category/{categoryName<^[a-zA-Z0-9\-' ']+$>}", name="show_category")
    * @param string|null $categoryName
    * @return Response
    */
@@ -144,7 +144,7 @@ class WildController extends AbstractController
     $seasons = $this->getDoctrine()
       ->getRepository(Season::class)
       ->findBy(['program' => $program]);
-
+    
     return $this->render('Wild/program.html.twig', [
       'programName' => $programName,
       'program' => $program,

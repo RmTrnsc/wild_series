@@ -12,6 +12,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Category
 {
   /**
+   * @ORM\Id()
+   * @ORM\GeneratedValue()
+   * @ORM\Column(type="integer")
+   * @var int
+   */
+  private $id;
+
+  /**
+   * @ORM\Column(type="string", length=190)
+   * @var
+   */
+  private $name;
+
+  /**
    * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="category")
    */
   private $programs;
@@ -59,18 +73,6 @@ class Category
 
     return $this;
   }
-
-  /**
-   * @ORM\Id()
-   * @ORM\GeneratedValue()
-   * @ORM\Column(type="integer")
-   */
-  private $id;
-
-  /**
-   * @ORM\Column(type="string", length=100)
-   */
-  private $name;
 
   public function getId(): ?int
   {
