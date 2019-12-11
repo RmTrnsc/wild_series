@@ -183,7 +183,7 @@ class WildController extends AbstractController
    * @param Episode $episode
    * @return Response
    */
-  public function ShowEpisode(Episode $episode): Response
+  public function showEpisode(Episode $episode): Response
   {
     $episode->getSeason()->getProgram();
     $picture = $episode->getImages();
