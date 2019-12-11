@@ -26,3 +26,7 @@ https://drive.google.com/open?id=1_IrMRJCQ1eQpm7KNjC09EBZscGBLxi5a
 ### Quête symfony 13, _ManyToMany_ :
 
 https://drive.google.com/open?id=14kzwnphUSCUZ8C9hTjoUcw7GAdms8Vnu
+
+### Quête symfony 14, _Entity Type_ :
+
+https://drive.google.com/open?id=1cbEm8GWI3Hiy2M93Jac-b_dlFgzMh327
