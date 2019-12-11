@@ -26,8 +26,21 @@
           </tr>
           <tr>
             <th>Poster</th>
-            <td>{{ program.poster }}</td>
+            <td><img src="{{ program.poster }}" alt="">img</td>
           </tr>
+          <tr>
+            <th>Acteur</th>
+              <td>
+                <ul>
+                {% for actor in program.actors %}
+                  <a href="{{ path('actorProgram',{'id':actor.id}) }}"><p>{{ actor.name }}</p></a>
+                {% else %}
+                  <p>Aucun acteur pour cette série</p>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+
           </tbody>
         </table>
       </div>
