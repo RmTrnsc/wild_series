@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ActorController extends AbstractController
 {
     /**
-     * @Route("/actor", name="actor", defaults={"id"=null})
+     * @Route("/actors", name="actor", defaults={"id"=null})
      * @param ActorRepository $actorRepository
      * @return Response
      */
