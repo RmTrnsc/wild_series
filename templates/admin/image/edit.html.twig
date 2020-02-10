@@ -2,9 +2,24 @@
 
 {% block title %}
 
+  Modifier l'image : {{ image.episodePicture }}
+
 {% endblock %}
 
 {% block body %}
 
+  <div class="wrapperImageEdit container">
+
+    <h1>Modifier l'image' : {{ image.episodePicture }}</h1>
+    {{ include('admin/image/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+    <div class="row text-left">
+      <div class="col">
+        <a href="{{ path('image_index') }}">Retour à la liste</a>
+      </div>
+    </div>
+
+  </div>
+
 {% endblock %}
+
 

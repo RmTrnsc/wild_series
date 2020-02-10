@@ -201,7 +201,8 @@ body {
         }
     }
 
-    .wrapperCategoryIndex {
+    .wrapperCategoryIndex,
+    .wrapperImagesIndex {
         tr:first-child {
             th:nth-child(3) {
                 width: 180px;

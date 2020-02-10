@@ -1,10 +1,37 @@
 {% extends 'base.html.twig' %}
 
+{% block title 'Nouvelle image' %}
+
 {% block body %}
 
+  <div class="wrapperImageNew container">
+
+    <h1>Ajouter une nouvelle image</h1>
+    <div class="row">
+      <div class="col d-flex align-items-baseline">
+        <p>Image déjà existante :</p>
+        {% if images %}
+          {% for image in images %}
+            <ul class="list-group list-group-horizontal ml-2">
+              <li class="list-group-item">
+                <img src="{{ image.picture }}" alt="{{ image.episodePicture }}">
+              </li>
+            </ul>
+          {% endfor %}
+        {% else %}
+          <p class="text-info list-group-item ml-2">C'est la première</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        {{ include ('admin/image/_form.html.twig') }}
+        <a href="{{ path('image_index') }}">Retour à la liste</a>
+      </div>
+    </div>
+
+  </div>
+
+
 {% endblock %}
-
-{% block title %}
-
-{% endblock %}
-

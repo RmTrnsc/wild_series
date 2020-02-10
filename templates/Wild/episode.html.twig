@@ -6,12 +6,8 @@
 
   <div class="wrapperEpisode container">
 
-    <a href="{{ path('show_program', {'programName': episode.season.program.title}) }}">
-      <h1><u>{{ episode.season.program.title }}</u></h1>
-    </a>
-    <a href="{{ path('show_episodes', {'id': episode.season.id}) }}">
-      <h2><u>Saison {{ episode.season.id }} - Année {{ episode.season.year }}</u></h2>
-    </a>
+    <h1>{{ episode.season.program.title | title }}</h1>
+    <h2>Saison {{ episode.season.id }} - Année {{ episode.season.year }}</h2>
     <h3>Episode {{ episode.number }}</h3>
     <div class="card mt-2">
       <div class="card-title m-2 d-flex align-items-baseline">
@@ -39,7 +35,7 @@
 
     <div class="row text-center m-2">
       <div class="col-lg-12">
-        <a href="{{ path('show_episodes', {'id': episode.season.id }) }}">Retour sur tous les épisodes</a>
+        <a href="{{ path('show_episodes', {'id': episode.season.id }) }}">Tous les épisodes</a>
       </div>
     </div>
 

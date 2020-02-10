@@ -1,10 +1,15 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-
-{% endblock %}
-
-{% block title %}
-
-{% endblock %}
-
+{{ form_start(form) }}
+<div class="container">
+  <div class="row mt-3">
+    <div class="col">
+      {{ form_label(form.picture, 'Nom de la catégorie') }}
+      <img src="{{ form_widget(form.picture) }}" alt="{{ form.episodePicture }}">
+    </div>
+  </div>
+  <div class="row text-center mt-3">
+    <div class="col">
+      <button class="btn btn-outline-dark">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+  </div>
+</div>
+{{ form_end(form) }}
