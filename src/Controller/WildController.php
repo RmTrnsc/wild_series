@@ -52,7 +52,6 @@ class WildController extends AbstractController
         }
 
         return $this->render('/Wild/show.html.twig', [
-          'slug' => $slug,
           'program' => $program
         ]);
     }
@@ -106,27 +105,25 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/program/{programName}", defaults={"programName" = null}, name="show_program")
-     * @param string|null $programName
+     * @Route("/program/{slug}", name="show_program")
+     * @param string|null $slug
      * @return Response
      */
-    public function showByProgram(?string $programName): Response
+    public function showByProgram(?string $slug): Response
     {
         $program = $this->getDoctrine()
           ->getRepository(Program::class)
-          ->findOneBy(['title' => $programName]);
-
+          ->findOneBy(['slug' => $slug]);
 
         $seasons = $this->getDoctrine()
           ->getRepository(Season::class)
           ->findBy(['program' => $program]);
 
-        if (!$programName || !$program || $seasons) {
+        if (!$slug || !$program || !$seasons) {
             return $this->render('Error/_error.html.twig');
         }
 
         return $this->render('Wild/program.html.twig', [
-          'programName' => $programName,
           'program' => $program,
           'seasons' => $seasons
         ]);

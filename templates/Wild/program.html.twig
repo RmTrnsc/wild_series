@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ programName|replace({'-':' '})|title }}{% endblock %}
+{% block title %}{{ program.title | title }}{% endblock %}
 
 {% block body %}
 
 
   <div class="wrapperProgram container">
 
-    <h1><u>{{ programName|replace({'-':' '})|title }}</u></h1>
+    <h1>{{ program.title | title }}</h1>
 
     {% if seasons %}
 
