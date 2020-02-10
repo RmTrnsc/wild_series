@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ slug|replace({'-':' '})|title }} {% endblock %}
+{% block title %} {{ program.title | title }} {% endblock %}
 
 {% block body %}
 
@@ -13,7 +13,7 @@
         <small class="text-muted">Categorie : {{ program.category.name }}</small>
         <p>{{ program.summary }}</p>
         <div class="d-flex flex-column ">
-          <a href="{{ path('show_program', {'programName': program.slug}) }}">Voir toutes les saisons de la série</a>
+          <a href="{{ path('show_program', {'slug': program.slug}) }}">Voir toutes les saisons de la série</a>
         </div>
       </div>
     </div>
