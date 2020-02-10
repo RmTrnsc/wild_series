@@ -12,7 +12,7 @@
   <div class="wrapperEpisodes container">
 
     <h1 class="mr-2"><u>{{ program.title }}</u></h1>
-    <a href="{{ path('show_program', {'programName': program.title}) }}">
+    <a href="{{ path('show_program', {'slug': program.slug}) }}">
       <h2 class="mr-2"><u>Saison {{ id }} - Année {{ season.year }}</u></h2>
     </a>
 
@@ -33,7 +33,7 @@
 
     <div class="row text-center m-2">
       <div class="col-lg-12">
-        <a href="{{ path('show_program', {'programName': program.title}) }}">Retour aux saisons</a>
+        <a href="{{ path('show_program', {'slug': program.slug}) }}">Retour aux saisons</a>
       </div>
     </div>
 
