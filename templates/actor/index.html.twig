@@ -1,13 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title 'Les acteurs'%}
+{% block title 'Les acteurs' %}
 
 {% block body %}
 
-<div class="container">
-    <h1>Les acteurs</h1>
-  {% for actor in actors %}
-    <a href="{{ path('actorProgram',{'id':actor.id}) }}"><li>{{ actor.name }}</li></a>
-  {% endfor %}
-</div>
+  <div class="wrapperActorIndex container">
+    <div class="row">
+      <div class="col">
+        <h1>Les acteurs</h1>
+      </div>
+    </div>
+    <div class="row">
+      {% for actor in actors %}
+        <div class="col-lg-4">
+          <div class="card m-2">
+            <a class="p-1" href="{{ path('actorProgram',{'id':actor.id}) }}">
+              {{ actor.name }}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="row text-center m-2">
+      <div class="col">
+        <a href="{{ path('app_index') }}">Retour à l'accueil</a>
+      </div>
+    </div>
+  </div>
 {% endblock %}

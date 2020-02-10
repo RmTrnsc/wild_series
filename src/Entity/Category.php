@@ -11,83 +11,98 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
-  /**
-   * @ORM\Id()
-   * @ORM\GeneratedValue()
-   * @ORM\Column(type="integer")
-   * @var int
-   */
-  private $id;
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    private $id;
 
-  /**
-   * @ORM\Column(type="string", length=190)
-   * @var
-   */
-  private $name;
+    /**
+     * @ORM\Column(type="string", length=190)
+     * @var
+     */
+    private $name;
 
-  /**
-   * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="category")
-   */
-  private $programs;
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="category")
+     */
+    private $programs;
 
-  public function __construct()
-  {
-    $this->programs = new ArrayCollection();
-  }
+    /**
+     * @ORM\Column(type="string", length=190)
+     */
+    private $slug;
 
-  /**
-   * @return Collection|Program[]
-   */
-  public function getPrograms(): Collection
-  {
-    return $this->programs;
-  }
-
-  /**
-   * @param Program $program
-   * @return Category
-   */
-  public function addProgram(Program $program): self
-  {
-    if (!$this->programs->contains($program)) {
-      $this->programs[] = $program;
-      $program->setCategory($this);
+    public function __construct()
+    {
+        $this->programs = new ArrayCollection();
     }
 
-    return $this;
-  }
-
-  /**
-   * @param Program $program
-   * @return Category
-   */
-  public function removeProgram(Program $program): self
-  {
-    if ($this->programs->contains($program)) {
-      $this->programs->removeElement($program);
-
-      if ($program->getCategory() === $this) {
-        $program->setCategory(null);
-      }
+    /**
+     * @return Collection|Program[]
+     */
+    public function getPrograms(): Collection
+    {
+        return $this->programs;
     }
 
-    return $this;
-  }
+    /**
+     * @param Program $program
+     * @return Category
+     */
+    public function addProgram(Program $program): self
+    {
+        if (!$this->programs->contains($program)) {
+            $this->programs[] = $program;
+            $program->setCategory($this);
+        }
 
-  public function getId(): ?int
-  {
-    return $this->id;
-  }
+        return $this;
+    }
 
-  public function getName(): ?string
-  {
-    return $this->name;
-  }
+    /**
+     * @param Program $program
+     * @return Category
+     */
+    public function removeProgram(Program $program): self
+    {
+        if ($this->programs->contains($program)) {
+            $this->programs->removeElement($program);
 
-  public function setName(string $name): self
-  {
-    $this->name = $name;
+            if ($program->getCategory() === $this) {
+                $program->setCategory(null);
+            }
+        }
 
-    return $this;
-  }
+        return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
+    }
 }

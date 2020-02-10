@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Index des catégories' %}
+
+{% block body %}
+
+  <div class="wrapperCategoryIndex container">
+
+    <h1>Index des catégories</h1>
+
+    <div class="row">
+      <div class="col table-responsive">
+        <table class="table table-light table-striped table-bordered table-hover">
+          <thead class="thead-dark">
+          <tr>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          {% for category in categories %}
+
+            <tr>
+              <td>{{ category.id }}</td>
+              <td>{{ category.name | title }}</td>
+              <td class="d-flex justify-content-around">
+                <a class="btn btn-outline-info" href="{{ path('category_edit', {'id': category.id}) }}"><i
+                    class="far fa-edit"></i></a>
+                {{ include('admin/categories/_delete_form.html.twig') }}
+              </td>
+            </tr>
+
+          {% else %}
+
+            <tr>
+              <td colspan="5">Aucune catégorie trouvée</td>
+            </tr>
+
+          {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col">
+        <a href="{{ path('category_new') }}">
+          <button class="btn btn-outline-info">Ajouter une nouvelle catégorie</button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

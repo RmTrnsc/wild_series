@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Nouvelle saison' %}
+
+{% block body %}
+
+  <div class="wrapperSeasonNew container">
+
+    <h1>Ajouter une nouvelle saison</h1>
+    <div class="row">
+      <div class="col d-flex align-items-baseline">
+        <p>Saison déjà existante :</p>
+        {% if seasons %}
+          {% for season in seasons %}
+            <ul class="list-group list-group-horizontal ml-2">
+              <li class="list-group-item">Saison {{ season.id }} : {{ season.program.title | title }}</li>
+            </ul>
+          {% endfor %}
+        {% else %}
+          <p class="text-info list-group-item ml-2">C'est la première</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{ include('admin/season/_form.html.twig') }}
+        <a href="{{ path('season_index') }}">Retour à la liste</a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

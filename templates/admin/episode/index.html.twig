@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Index des épisodes' %}
+
+{% block body %}
+  <div class="wrapperEpisodeIndex container">
+
+    <h1>Index des épisodes</h1>
+
+    <div class="row">
+      <div class="col table-responsive">
+        <table class="table table-light table-striped table-bordered table-hover">
+          <thead class="thead-dark">
+          <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Série</th>
+            <th>Saison / Année</th>
+            <th>Numéro de l'épisode</th>
+            <th>Synopsis</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for episode in episodes %}
+            <tr>
+              <td>{{ episode.id }}</td>
+              <td>{{ episode.title | capitalize }}</td>
+              <td>{{ episode.season.program.title | title}}</td>
+              <td>{{ episode.season.id }} / {{ episode.season.year }}</td>
+              <td>{{ episode.number }}</td>
+              <td>{{ episode.synopsis | u.truncate(180, '...') }}</td>
+              <td class="d-flex justify-content-around">
+                <a class="btn btn-outline-info" href="{{ path('episode_edit', {'id': episode.id}) }}"><i
+                    class="far fa-edit"></i></a>
+                {{ include('admin/episode/_delete_form.html.twig') }}
+              </td>
+            </tr>
+          {% else %}
+            <tr>
+              <td colspan="5">Aucun épisode trouvé</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col">
+        <a href="{{ path('episode_new') }}">
+          <button class="btn btn-outline-info">Ajouter un nouvel épisode</button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

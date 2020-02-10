@@ -40,9 +40,14 @@ class Episode
     private $season;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="episodePicture")
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="episodePicture", cascade={"persist", "remove"})
      */
     private $images;
+
+    /**
+     * @ORM\Column(type="string", length=190)
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -129,6 +134,18 @@ class Episode
                 $image->setEpisodePicture(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

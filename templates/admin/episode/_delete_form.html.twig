@@ -1,0 +1,33 @@
+<form method="post" action="{{ path('episode_delete', {'id': episode.id}) }}">
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="button" data-toggle="modal" data-target="#deleteModal{{ episode.id }}" class="btn btn-outline-danger">
+    <i
+      class="far fa-trash-alt"></i></button>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal{{ episode.id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Suppression</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fas fa-times"></i></span>
+        </button>
+      </div>
+      <div class="modal-body" style="font-size: 20px">
+        Êtes-vous sûr de vouloir supprimer l'épisode {{ episode.title | capitalize }} ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+        <form method="post" action="{{ path('episode_delete', {'id': episode.id}) }}">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="hidden" name="_token" value="{{ csrf_token('delete' ~ episode.id) }}"
+                  class="btn btn-danger">Oui
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

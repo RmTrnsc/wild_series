@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      {{ form_label(form.year, 'Année') }}
+      {{ form_widget(form.year) }}
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      {{ form_label(form.description, 'Description') }}
+      {{ form_widget(form.description) }}
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      {{ form_label(form.program, 'Appartenant à quel série ?') }}
+      {{ form_widget(form.program) }}
+    </div>
+  </div>
+  <div class="row text-center mt-3">
+    <div class="col">
+      <button class="btn btn-outline-dark">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+  </div>
+</div>
+{{ form_end(form) }}

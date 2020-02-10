@@ -5,13 +5,15 @@ namespace App\Controller;
 use App\Entity\Season;
 use App\Form\SeasonType;
 use App\Repository\SeasonRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/season")
+ * @IsGranted("ROLE_ADMIN")
+ * @Route("/adminSeason")
  */
 class SeasonController extends AbstractController
 {
@@ -22,17 +24,18 @@ class SeasonController extends AbstractController
      */
     public function index(SeasonRepository $seasonRepository): Response
     {
-        return $this->render('season/index.html.twig', [
-            'seasons' => $seasonRepository->findAll(),
+        return $this->render('admin/season/index.html.twig', [
+          'seasons' => $seasonRepository->findAll(),
         ]);
     }
 
     /**
      * @Route("/new", name="season_new", methods={"GET","POST"})
      * @param Request $request
+     * @param SeasonRepository $seasonRepository
      * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SeasonRepository $seasonRepository): Response
     {
         $season = new Season();
         $form = $this->createForm(SeasonType::class, $season);
@@ -46,21 +49,10 @@ class SeasonController extends AbstractController
             return $this->redirectToRoute('season_index');
         }
 
-        return $this->render('season/new.html.twig', [
-            'season' => $season,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="season_show", methods={"GET"})
-     * @param Season $season
-     * @return Response
-     */
-    public function show(Season $season): Response
-    {
-        return $this->render('season/show.html.twig', [
-            'season' => $season,
+        return $this->render('admin/season/new.html.twig', [
+          'seasons' => $seasonRepository->findAll(),
+          'season' => $season,
+          'form' => $form->createView(),
         ]);
     }
 
@@ -81,9 +73,9 @@ class SeasonController extends AbstractController
             return $this->redirectToRoute('season_index');
         }
 
-        return $this->render('season/edit.html.twig', [
-            'season' => $season,
-            'form' => $form->createView(),
+        return $this->render('admin/season/edit.html.twig', [
+          'season' => $season,
+          'form' => $form->createView(),
         ]);
     }
 
@@ -95,7 +87,7 @@ class SeasonController extends AbstractController
      */
     public function delete(Request $request, Season $season): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$season->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $season->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($season);
             $entityManager->flush();

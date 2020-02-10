@@ -1,15 +1,36 @@
-{% extends 'base.html.twig' %}
+a{% extends 'base.html.twig' %}
 
 {% block title 'Les séries' %}
 
 {% block body %}
 
-  <div class="container">
-    <h4>{{ actor.name }} joue dans :</h4>
+  <div class="wrapperActor container">
+    <div class="row">
+      <div class="col">
+        <h4>{{ actor.name }} joue dans :</h4>
+      </div>
+    </div>
     {% for program in programs %}
-      <a href="{{ path('program_show',{'id': program.id}) }}"><p>{{ program.title }}</p></a>
-      {% else %}
+      <div class="row">
+        <div class="col-4">
+          <div class="card text-center">
+            <a href="{{ path('show_program',{'programName': program.title}) }}">
+              <p class="m-0">{{ program.title|replace({'-':' '})|title }}</p>
+              <div class="card-body">
+                <img class="card-img-top" style="width: 18rem" src="{{ program.poster }}" alt="{{ program.title }}">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    {% else %}
       <p>Aucune série trouvée</p>
     {% endfor %}
+    <div class="row text-center m-2">
+      <div class="col">
+        <a href="{{ path('actor') }}">Retour aux acteurs</a>
+      </div>
+    </div>
   </div>
+
 {% endblock %}

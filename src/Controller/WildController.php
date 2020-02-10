@@ -25,7 +25,7 @@ class WildController extends AbstractController
           ->findAll();
 
         if (!$programs) {
-            throw $this->createNotFoundException('No program found in program\'s table.');
+            return $this->render('Error/_error.html.twig');
         }
 
         return $this->render('Wild/index.html.twig', [
@@ -35,29 +35,20 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/show/{slug<^[a-zA-Z0-9\-' ']+$>}", defaults={"slug": null}, name="wild_show")
+     * @Route("/wild/show/{slug}", defaults={"slug": null}, name="wild_show")
      * @param string|null $slug
      * @return Response
      */
     public function show(?string $slug): Response
     {
-        if (!$slug) {
-            throw $this->createNotFoundException(
-              "Aucune série sélectionnée, veuillez en choisir une"
-            );
-        }
-        $slug = preg_replace(
-          '/-/',
-          ' ',
-          ucwords(trim(strip_tags($slug)), "-")
-        );
+        $slug = str_replace(' ', '-', strtolower($slug));
+
         $program = $this->getDoctrine()
           ->getRepository(Program::class)
-          ->findOneBy(['title' => mb_strtolower($slug)]);
-        if (!$program) {
-            throw $this->createNotFoundException(
-              'No program with ' . $slug . ' title, found in program\'s table'
-            );
+          ->findOneBy(['slug' => $slug]);
+
+        if (!$slug || !$program) {
+            return $this->render('Error/_error.html.twig');
         }
 
         return $this->render('/Wild/show.html.twig', [
@@ -73,26 +64,17 @@ class WildController extends AbstractController
      */
     public function showByCategory(?string $categoryName): Response
     {
-        if (!$categoryName) {
-            throw $this->createNotFoundException(
-              'Aucune catégorie selectionnée'
-            );
-        }
-
         $category = $this->getDoctrine()
           ->getRepository(Category::class)
           ->findOneBy(['name' => mb_strtolower($categoryName)]);
-        if (!$category) {
-            throw $this->createNotFoundException('Aucune catégorie trouvée');
-        }
+
 
         $programs = $this->getDoctrine()
           ->getRepository(Program::class)
           ->findBy(['category' => $category], ['title' => 'asc']);
-        if (!$programs) {
-            throw $this->createNotFoundException(
-              'Aucune série dans la catégorie ' . $categoryName . ' trouvée dans la table'
-            );
+
+        if (!$categoryName || !$category || !$programs) {
+            return $this->render('Error/_error.html.twig');
         }
 
         return $this->render('/Wild/category.html.twig', [
@@ -114,7 +96,7 @@ class WildController extends AbstractController
           ->findAll();
 
         if (!$categories) {
-            throw $this->createNotFoundException('No program found in program\'s table.');
+            return $this->render('Error/_error.html.twig');
         }
 
         return $this->render('Wild/categories.html.twig', [
@@ -130,20 +112,18 @@ class WildController extends AbstractController
      */
     public function showByProgram(?string $programName): Response
     {
-        if (!$programName) {
-            throw  $this->createNotFoundException('No program has been sent to find a program in program\'s table.');
-        }
-
         $program = $this->getDoctrine()
           ->getRepository(Program::class)
           ->findOneBy(['title' => $programName]);
-        if (!$program) {
-            throw $this->createNotFoundException('Aucun programme trouvé');
-        }
+
 
         $seasons = $this->getDoctrine()
           ->getRepository(Season::class)
           ->findBy(['program' => $program]);
+
+        if (!$programName || !$program || $seasons) {
+            return $this->render('Error/_error.html.twig');
+        }
 
         return $this->render('Wild/program.html.twig', [
           'programName' => $programName,
@@ -160,7 +140,7 @@ class WildController extends AbstractController
     public function showBySeason(?int $id): Response
     {
         if (!$id) {
-            throw $this->createNotFoundException('Aucun épisode trouvé pour cette saison');
+            return $this->render('Error/_error.html.twig');
         }
 
         $season = $this->getDoctrine()

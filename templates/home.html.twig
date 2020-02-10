@@ -12,27 +12,49 @@
 
     <div class="row">
 
-      {% for program in programs %}
+      <button class="buttonClick">click me</button>
+      <div class="hello"></div>
 
-        <div class="col-lg-4">
-          <div class="card mt-2">
-            <div class="card-body">
-              <a href="{{ path('wild_show', {'slug': program.title}) }}">
+      {% if programs %}
+
+        {% for program in programs %}
+
+          <div class="col-lg-4">
+            <div class="card mt-2">
+              <div class="card-body">
                 <img class="card-img-top"
                      src="{{ program.poster }}"
                      alt="{{ program.title }}">
-              </a>
-              <div class="card-text text-center">
-                <a class="m-2" href="{{ path('wild_show', {'slug': program.title}) }}">En voir plus</a>
+                <div class="card-text text-center m-2">
+                  <a href="{{ path('wild_show', {'slug': program.slug}) }}">En voir plus</a>
+                </div>
               </div>
             </div>
           </div>
+
+        {% endfor %}
+
+      {% else %}
+
+        <div class="col">
+          <h2>Pour le moment il y a aucune série, pas de panique ça arrive !</h2>
         </div>
 
-      {% endfor %}
+      {% endif %}
 
     </div>
+
   </div>
 
+{% endblock %}
+
+{% block javascripts %}
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+      $('.buttonClick').click(function () {
+          $('.hello').innerText = 'hello'
+      });
+  </script>
 
 {% endblock %}

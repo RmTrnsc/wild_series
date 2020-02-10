@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+  Modifier la saison {{ season.id }}, année {{ season.year }}
+
+{% endblock %}
+
+{% block body %}
+
+  <div class="wrapperSeasonEdit container">
+
+    <h1>Modifier la saison {{ season.id }}, année {{ season.year }}</h1>
+    {{ include('admin/season/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+    <div class="row text-left">
+      <div class="col">
+        <a href="{{ path('season_index') }}">Retour à la liste</a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

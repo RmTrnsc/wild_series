@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Index des séries' %}
+
+{% block body %}
+
+  <div class="wrapperProgramIndex container">
+
+    <h1>Index des Séries</h1>
+
+    <div class="row">
+      <div class="col table-responsive">
+        <table class="table table-light table-striped table-bordered table-hover">
+          <thead class="thead-dark">
+          <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Résumé</th>
+            <th>Image</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          {% for program in programs %}
+
+            <tr>
+              <td>{{ program.id }}</td>
+              <td>{{ program.title| title }}</td>
+              <td>{{ program.summary }}</td>
+              <td><img src="{{ program.poster }}" alt="" style="width: 10rem"></td>
+              <td class="d-flex justify-content-around">
+                <a class="btn btn-outline-info" href="{{ path('program_edit', {'id': program.id}) }}"><i
+                    class="far fa-edit"></i></a>
+                {{ include('admin/program/_delete_form.html.twig') }}
+              </td>
+            </tr>
+
+          {% else %}
+
+            <tr>
+              <td colspan="5">Aucune série trouvée</td>
+            </tr>
+
+          {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col">
+        <a href="{{ path('program_new') }}">
+          <button class="btn btn-outline-info">Ajouter une nouvelle série</button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+
+{% endblock %}

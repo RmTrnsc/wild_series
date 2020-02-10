@@ -1,0 +1,42 @@
+{{ form_start(form) }}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      {{ form_label(form.title, 'Titre') }}
+      {{ form_widget(form.title) }}
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      {{ form_label(form.summary, 'Résumé') }}
+      {{ form_widget(form.summary) }}
+    </div>
+  </div>
+  <div class="row align-items-center mt-3">
+    <div class="col-6">
+      {{ form_label(form.poster, 'Image (url)') }}
+      {{ form_widget(form.poster) }}
+    </div>
+    <div class="col-6 text-center">
+      <img src="{{ program.poster }}" alt="{{ program.title }}" style="width: 10rem">
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      {{ form_label(form.category, 'Catégorie') }}
+      {{ form_widget(form.category) }}
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      {{ form_label(form.actors, 'Acteurs') }}
+      {{ form_widget(form.actors) }}
+    </div>
+  </div>
+  <div class="row text-center mt-3">
+    <div class="col">
+      <button class="btn btn-outline-dark">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+  </div>
+</div>
+{{ form_end(form) }}

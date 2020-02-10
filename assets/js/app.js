@@ -11,7 +11,7 @@ require('../css/app.scss');
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+// console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
 const $ = require ( 'jquery' );
 // this "modifies" the jquery module: adding behavior to it
@@ -21,3 +21,7 @@ require ( 'bootstrap' );
 // or you can include specific pieces
 // require('bootstrap/js/dist/tooltip');
 // require('bootstrap/js/dist/popover');
+
+
+require('@fortawesome/fontawesome-free/css/all.min.css');
+require('@fortawesome/fontawesome-free/js/all.js');

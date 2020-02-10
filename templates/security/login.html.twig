@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Page de connexion' %}
+
+{% block body %}
+
+  <div class="wrapperLogin container mt-5">
+
+    <h1 class="text-center mt-1">Page de connexion</h1>
+
+    <div class="row align-items-center justify-content-center mt-5">
+
+      <div class="login col-4 text-center">
+        <div class="icon">
+          <i class="fas fa-user"></i>
+        </div>
+
+        {{ include('security/_form.html.twig') }}
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

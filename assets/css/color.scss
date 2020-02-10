@@ -1,0 +1,27 @@
+@import "~bootstrap/scss/bootstrap";
+
+//bootstrap color
+$colors: (
+    "blue": $blue,
+    "cyan": $cyan,
+    "red": $red,
+    "green": $green,
+);
+
+$green_success: #28a745;
+$blue_primary: #007bff;
+$blue_info: #17a2b8;
+$red_danger: #dc3545;
+
+//color lighten
+$blue_lighten: lighten(color("blue"), 20%);
+$cyan_lighten: lighten(color("cyan"), 20%);
+$red_lighten: lighten(color("red"), 20%);
+$green_lighten: lighten(color("green"), 20%);
+
+//color darken
+$blue_darken: darken(color("blue"), 15%);
+$cyan_darken: darken(color("cyan"), 15%);
+$red_darken: darken(color("red"), 15%);
+$green_darken: darken(color("green"), 15%);
+

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Nouvel épisode' %}
+
+{% block body %}
+
+  <div class="wrapperEpisodeNew container">
+
+    <h1>Ajouter un nouvel épisode</h1>
+    <div class="col d-flex align-items-baseline">
+      <p>Épisode déjà existante :</p>
+      {% if episodes %}
+        {% for episode in episodes %}
+          <ul class="list-group list-group-horizontal ml-2">
+            <li class="list-group-item">Épisode {{ episode.number }}, saison {{ episode.season.id }},
+              série {{ episode.season.program.title | title }}</li>
+          </ul>
+        {% endfor %}
+      {% else %}
+        <p class="text-info list-group-item ml-2">C'est le premier</p>
+      {% endif %}
+    </div>
+    <div class="row">
+      <div class="col">
+        {{ include('admin/episode/_form.html.twig') }}
+        <a href="{{ path('episode_index') }}">Retour à la liste</a>
+      </div>
+    </div>
+
+  </div>
+
+
+{% endblock %}

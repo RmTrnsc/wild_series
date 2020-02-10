@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+  Modifier la catégorie : {{ category.name }}
+
+{% endblock %}
+
+{% block body %}
+
+  <div class="wrapperCategoryEdit container">
+
+    <h1>Modifier la catégorie : {{ category.name }}</h1>
+    {{ include('admin/categories/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+    <div class="row text-left">
+      <div class="col">
+        <a href="{{ path('category_index') }}">Retour à la liste</a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}
+
+
