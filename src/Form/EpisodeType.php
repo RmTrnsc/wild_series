@@ -3,10 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Episode;
-use App\Entity\Program;
-use App\Entity\Season;
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
