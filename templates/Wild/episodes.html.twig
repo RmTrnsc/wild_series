@@ -2,7 +2,7 @@
 
 {% block title %}
 
-  {{ program.title }} / Saison : {{ id }}
+  {{ program.title | title }} / Saison : {{ id }}
 
 {% endblock %}
 
@@ -11,10 +11,8 @@
 
   <div class="wrapperEpisodes container">
 
-    <h1 class="mr-2"><u>{{ program.title }}</u></h1>
-    <a href="{{ path('show_program', {'programName': program.title}) }}">
-      <h2 class="mr-2"><u>Saison {{ id }} - Année {{ season.year }}</u></h2>
-    </a>
+    <h1 class="mr-2">{{ program.title | title }}</h1>
+    <h2 class="mr-2">Saison {{ id }} - Année {{ season.year }}</h2>
 
     {% for episode in episodes %}
 
@@ -24,16 +22,16 @@
           <h3>{{ episode.title }}</h3>
         </div>
         <div class="card-body">
-          <p class="card-text">{{ episode.synopsis|u.truncate(150, '...') }}</p>
+          <p class="card-text">{{ episode.synopsis | u.truncate(150, '...') }}</p>
+          <a class="m-2" href="{{ path('show_episode', {'id':episode.id}) }}">Voir la suite</a>
         </div>
-        <a class="m-2" href="{{ path('show_episode', {'id':episode.id}) }}">Voir la suite</a>
       </div>
 
     {% endfor %}
 
     <div class="row text-center m-2">
       <div class="col-lg-12">
-        <a href="{{ path('show_program', {'programName': program.title}) }}">Retour aux saisons</a>
+        <a href="{{ path('show_program', {'slug': program.slug}) }}">Retour aux saisons</a>
       </div>
     </div>
 
