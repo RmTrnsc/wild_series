@@ -2,7 +2,7 @@
 
 {% block title %}
 
-  Modifier l'image : {{ image.episodePicture }}
+  Modifier l'image de l'épisode : {{ image.episodePicture.title }}
 
 {% endblock %}
 
@@ -10,7 +10,7 @@
 
   <div class="wrapperImageEdit container">
 
-    <h1>Modifier l'image' : {{ image.episodePicture }}</h1>
+    <h1>Modifier l'image' : {{ image.episodePicture.title }}</h1>
     {{ include('admin/image/_form.html.twig', {'button_label': 'Mise à jour'}) }}
     <div class="row text-left">
       <div class="col">

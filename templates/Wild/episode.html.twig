@@ -6,36 +6,48 @@
 
   <div class="wrapperEpisode container">
 
-    <h1>{{ episode.season.program.title | title }}</h1>
-    <h2>Saison {{ episode.season.id }} - Année {{ episode.season.year }}</h2>
-    <h3>Episode {{ episode.number }}</h3>
-    <div class="card mt-2">
-      <div class="card-title m-2 d-flex align-items-baseline">
-        <h3>{{ episode.title }}</h3>
+    <div class="row">
+      <div class="col">
+        <h1>{{ episode.season.program.title | title }}</h1>
+        <h2>Saison {{ episode.season.id }} - Année {{ episode.season.year }}</h2>
+        <h3>Episode {{ episode.number }}</h3>
       </div>
-      <div class="card-body">
-        <p class="card-text">{{ episode.synopsis }}</p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card mt-2">
+          <div class="card-title m-2 d-flex align-items-baseline">
+            <h3>{{ episode.title }}</h3>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{ episode.synopsis }}</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="gallery mt-5" id="gallery">
+    <div class="row">
+      <div class="col">
+        <div class="gallery mt-5" id="gallery">
 
-      {% for key in picture %}
+          {% for key in picture %}
 
-        <div class="mb-3 pics">
-          <a data-fancybox="gallery" href="{{ key.picture }}">
-            <img class="img-fluid" src="{{ key.picture }}"
-                 alt="{{ episode.season.program.title }}-{{ episode.season.id }}">
-          </a>
+            <div class="mb-3 pics">
+              <a data-fancybox="gallery" href="{{ key.picture }}">
+                <img src="{{ key.picture }}"
+                     alt="{{ episode.season.program.title }}-{{ episode.season.id }}">
+              </a>
+            </div>
+
+          {% endfor %}
+
         </div>
-
-      {% endfor %}
-
+      </div>
     </div>
 
     <div class="row text-center m-2">
       <div class="col-lg-12">
-        <a href="{{ path('show_episodes', {'id': episode.season.id }) }}">Tous les épisodes</a>
+        <a class="episodesLink" href="{{ path('show_episodes', {'id': episode.season.id }) }}">Tous les épisodes</a>
       </div>
     </div>
 

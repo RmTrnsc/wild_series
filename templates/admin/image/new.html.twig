@@ -8,13 +8,16 @@
 
     <h1>Ajouter une nouvelle image</h1>
     <div class="row">
-      <div class="col d-flex align-items-baseline">
+      <div class="col d-flex align-items-center">
         <p>Image déjà existante :</p>
         {% if images %}
           {% for image in images %}
             <ul class="list-group list-group-horizontal ml-2">
-              <li class="list-group-item">
-                <img src="{{ image.picture }}" alt="{{ image.episodePicture }}">
+              <li class="list-group-item text-center">
+                <a data-fancybox="gallery" href="{{ image.picture }}"><img src="{{ image.picture }}"
+                                                                           alt="{{ image.episodePicture.title }}">
+                </a>
+                <i>{{ image.episodePicture.season.program.title | title }} - {{ image.episodePicture.title }}</i>
               </li>
             </ul>
           {% endfor %}
@@ -27,7 +30,7 @@
     <div class="row">
       <div class="col">
         {{ include ('admin/image/_form.html.twig') }}
-        <a href="{{ path('image_index') }}">Retour à la liste</a>
+        <a class="listLink" href="{{ path('image_index') }}">Retour à la liste</a>
       </div>
     </div>
 

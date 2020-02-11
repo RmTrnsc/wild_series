@@ -15,18 +15,21 @@
           <tr>
             <th>Id</th>
             <th>Images</th>
+            <th>Épisode</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
 
           {% for image in images %}
-
             <tr>
               <td>{{ image.id }}</td>
               <td>
-                <img src="{{ image.picture }}" alt="{{ image.episodePicture }}">
+                <a data-fancybox="gallery" href="{{ image.picture }}"><img src="{{ image.picture }}"
+                                                                           alt="{{ image.episodePicture.title }}">
+                </a>
               </td>
+              <td>{{ image.episodePicture.title }}</td>
               <td class="d-flex justify-content-around">
                 <a class="btn btn-outline-info" href="{{ path('image_edit', {'id': image.id}) }}"><i
                     class="far fa-edit"></i></a>
