@@ -14,7 +14,7 @@
       {% for actor in actors %}
         <div class="col-lg-4">
           <div class="card m-2">
-            <a class="p-1" href="{{ path('actorProgram',{'id':actor.id}) }}">
+            <a class="p-1 actorLink" href="{{ path('actorProgram',{'id':actor.id}) }}">
               {{ actor.name }}
             </a>
           </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="row text-center m-2">
       <div class="col">
-        <a href="{{ path('app_index') }}">Retour à l'accueil</a>
+        <a class="homeLink" href="{{ path('app_index') }}">Retour à l'accueil</a>
       </div>
     </div>
   </div>

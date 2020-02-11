@@ -3,274 +3,296 @@
 @import "color.scss";
 
 body {
-    background-color: lightgray;
-    font-family: 'BenchNine', sans-serif;
-    font-size: 20px;
+  background-color: lightgray;
+  font-family: 'BenchNine', sans-serif;
+  font-size: 20px;
 
-    h1 {
+  h1 {
+    color: $cyan_darken;
+  }
+
+  h2 {
+    color: $blue_darken;
+  }
+
+  header {
+    margin-top: 6em;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: .5px;
+
+    nav {
+      a {
+        font-size: 20px;
+      }
+
+      p {
+        color: #0a0a0a;
+        font-size: 20px;
+        margin: auto 10px;
+      }
+
+      .collapse {
+        .adminLink {
+          border: 1px dotted #7c7c7d !important;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  .wrapperHome,
+  .wrapperSlug,
+  .wrapperIndex,
+  .wrapperCategory,
+  .wrapperCategoryNew,
+  .wrapperCategoryEdit,
+  .wrapperProgram,
+  .wrapperEpisodes,
+  .wrapperEpisode,
+  .wrapperProgramEdit,
+  .wrapperProgramNew,
+  .wrapperEpisodeEdit,
+  .wrapperEpisodeNew,
+  .wrapperSeasonEdit,
+  .wrapperSeasonNew,
+  .wrapperActor,
+  .wrapperImageNew,
+  .wrapperImageEdit {
+    a {
+      text-decoration: none;
+      color: $red_darken;
+      border: 1px solid $red_darken;
+      border-radius: 5px;
+      font-size: 22px;
+      transition-duration: .3s;
+      padding: 5px;
+    }
+
+    a:hover {
+      color: #fff;
+      background-color: $red_darken;
+    }
+  }
+
+  .wrapperActorIndex {
+    a {
+      transition-duration: .3s;
+    }
+
+    .card {
+      min-height: 50px;
+
+      .actorLink:hover {
         color: $cyan_darken;
+        font-size: 24px;
+        text-decoration: underline;
+      }
     }
 
-    h2 {
-        color: $blue_darken;
+    .homeLink {
+      text-decoration: none;
+      color: $red_darken;
+      border: 1px solid $red_darken;
+      border-radius: 5px;
+      font-size: 22px;
+      padding: 5px;
     }
 
-    header {
-        margin-top: 6em;
-        font-family: 'Kanit', sans-serif;
-        letter-spacing: .5px;
+    .homeLink:hover {
+      color: #fff;
+      background-color: $red_darken;
+    }
+  }
 
-        nav {
-            a {
-                font-size: 20px;
-            }
-
-            p {
-                color: #0a0a0a;
-                font-size: 20px;
-                margin: auto 10px;
-            }
-
-            .collapse {
-                .adminLink {
-                    border: 1px dotted #7c7c7d !important;
-                    border-radius: 3px;
-                }
-            }
-        }
+  .wrapperCategoryNew,
+  .wrapperCategoryEdit,
+  .wrapperProgramNew,
+  .wrapperProgramEdit,
+  .wrapperEpisodeNew,
+  .wrapperEpisodeEdit,
+  .wrapperSeasonNew,
+  .wrapperSeasonEdit {
+    .container {
+      .required {
+        font-size: 20px;
+      }
     }
 
-    .wrapperHome,
-    .wrapperSlug,
-    .wrapperIndex,
-    .wrapperCategory,
-    .wrapperCategoryNew,
-    .wrapperCategoryEdit,
-    .wrapperProgram,
-    .wrapperEpisodes,
-    .wrapperEpisode,
-    .wrapperProgramEdit,
-    .wrapperProgramNew,
-    .wrapperEpisodeEdit,
-    .wrapperEpisodeNew,
-    .wrapperSeasonEdit,
-    .wrapperSeasonNew,
-    .wrapperActorIndex,
-    .wrapperActor,
-    .wrapperLogin {
-        a {
-            text-decoration: none;
-            color: $red_darken;
-            border: 1px solid $red_darken;
-            border-radius: 5px;
-            font-size: 22px;
-            transition-duration: .3s;
-            padding: 5px;
-        }
+    button.btn {
+      font-size: 18px;
+      margin-top: 15px;
+    }
+  }
 
-        a:hover {
-            color: #fff;
-            background-color: $red_darken;
+  .wrapperActorIndex {
+
+  }
+
+  .wrapperLogin {
+    .icon {
+      font-size: 50px;
+    }
+  }
+
+  .wrapperIndex,
+  .wrapperCategory,
+  .wrapperProgram,
+  .wrapperEpisodes,
+  .wrapperEpisode {
+    .card {
+      .card-title {
+        h3 {
+          color: $red_lighten;
         }
+      }
+
+      .card-text {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .wrapperSlug {
+    p {
+      font-size: 20px;
     }
 
-    .wrapperCategoryNew,
-    .wrapperCategoryEdit,
-    .wrapperProgramNew,
-    .wrapperProgramEdit,
-    .wrapperEpisodeNew,
-    .wrapperEpisodeEdit,
-    .wrapperSeasonNew,
-    .wrapperSeasonEdit {
-        .container {
-            .required {
-                font-size: 20px;
-            }
-        }
-
-        button.btn {
-            font-size: 18px;
-            margin-top: 15px;
-        }
+    img {
+      width: 30rem;
     }
 
-    .wrapperActorIndex {
-        .card {
-            min-height: 50px;
+    small {
+      font-size: 18px;
+    }
+  }
 
-            a:hover {
-                color: $cyan_darken;
-                font-size: 24px;
-                text-decoration: underline;
-            }
-        }
+  .wrapperEpisode {
+    .gallery {
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
     }
 
-    .wrapperLogin {
-        .icon {
-            font-size: 50px;
-        }
+    .gallery .pics {
+      -webkit-transition: all 350ms ease;
+      transition: all 350ms ease;
     }
 
-    .wrapperIndex,
-    .wrapperCategory,
-    .wrapperProgram,
-    .wrapperEpisodes,
-    .wrapperEpisode {
-        .card {
-            .card-title {
-                h3 {
-                    color: $red_lighten;
-                }
-            }
+    .gallery .animation {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+    }
+  }
 
-            .card-text {
-                font-size: 20px;
-            }
-        }
+  .wrapperCategoryIndex,
+  .wrapperProgramIndex,
+  .wrapperEpisodeIndex,
+  .wrapperSeasonIndex {
+    th, td {
+      font-size: 18px;
     }
 
-    .wrapperSlug {
-        p {
-            font-size: 20px;
-        }
+    button.btn {
+      font-size: 18px
+    }
+  }
 
-        img {
-            width: 30rem;
-        }
+  .wrapperProgramIndex {
+    tr:first-child {
+      th:nth-child(2) {
+        min-width: 200px;
+      }
 
-        small {
-            font-size: 18px;
-        }
+      th:nth-child(5) {
+        width: 180px;
+      }
     }
 
-    .wrapperEpisode {
-        .gallery {
-            -webkit-column-count: 3;
-            -moz-column-count: 3;
-            column-count: 3;
-        }
-
-        .gallery .pics {
-            -webkit-transition: all 350ms ease;
-            transition: all 350ms ease;
-        }
-
-        .gallery .animation {
-            -webkit-transform: scale(1);
-            -ms-transform: scale(1);
-            transform: scale(1);
-        }
+    td:nth-child(3) {
+      padding: 20px;
     }
 
-    .wrapperCategoryIndex,
-    .wrapperProgramIndex,
-    .wrapperEpisodeIndex,
-    .wrapperSeasonIndex {
-        th, td {
-            font-size: 18px;
-        }
+    td:nth-child(5) {
+      padding-top: 109px;
+      padding-bottom: 109px;
 
-        button.btn {
-            font-size: 18px
-        }
+      a.btn:first-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .wrapperCategoryIndex,
+  .wrapperImagesIndex {
+    tr:first-child {
+      th:nth-child(3) {
+        width: 180px;
+      }
+    }
+  }
+
+  .wrapperSeasonIndex {
+    tr:first-child {
+      th:nth-child(2) {
+        min-width: 200px;
+      }
+
+      th:nth-child(5) {
+        width: 180px;
+      }
     }
 
-    .wrapperProgramIndex {
-        tr:first-child {
-            th:nth-child(2) {
-                min-width: 200px;
-            }
-
-            th:nth-child(5) {
-                width: 180px;
-            }
-        }
-
-        td:nth-child(3) {
-            padding: 20px;
-        }
-
-        td:nth-child(5) {
-            padding-top: 109px;
-            padding-bottom: 109px;
-
-            a.btn:first-child {
-                margin: 0;
-            }
-        }
+    td:nth-child(4) {
+      padding: 20px;
     }
 
-    .wrapperCategoryIndex,
-    .wrapperImagesIndex {
-        tr:first-child {
-            th:nth-child(3) {
-                width: 180px;
-            }
-        }
+    td:nth-child(5) {
+      padding: 53px;
+
+      a.btn:first-child {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .wrapperEpisodeIndex {
+    tr:first-child {
+      th:nth-child(2), th:nth-child(3) {
+        min-width: 150px;
+      }
+
+      th:nth-child(4) {
+        min-width: 105px;
+      }
+
+      th:nth-child(5) {
+        min-width: 136px;
+      }
     }
 
-    .wrapperSeasonIndex {
-        tr:first-child {
-            th:nth-child(2) {
-                min-width: 200px;
-            }
-
-            th:nth-child(5) {
-                width: 180px;
-            }
-        }
-
-        td:nth-child(4) {
-            padding: 20px;
-        }
-
-        td:nth-child(5) {
-            padding: 53px;
-
-            a.btn:first-child {
-                margin-right: 30px;
-            }
-        }
+    td:nth-child(6) {
+      padding: 20px;
     }
 
-    .wrapperEpisodeIndex {
-        tr:first-child {
-            th:nth-child(2), th:nth-child(3) {
-                min-width: 150px;
-            }
+    td:nth-child(7) {
+      padding: 53px;
 
-            th:nth-child(4) {
-                min-width: 105px;
-            }
-
-            th:nth-child(5) {
-                min-width: 136px;
-            }
-        }
-
-        td:nth-child(6) {
-            padding: 20px;
-        }
-
-        td:nth-child(7) {
-            padding: 53px;
-
-            a.btn:first-child {
-                margin-right: 30px;
-            }
-        }
+      a.btn:first-child {
+        margin-right: 30px;
+      }
     }
+  }
 
-    .wrapperProgramNew,
-    .wrapperEpisodeNew,
-    .wrapperSeasonNew,
-    .wrapperCategoryNew, {
-
-        ul {
-            li {
-                color: $blue_info;
-            }
-        }
+  .wrapperProgramNew,
+  .wrapperEpisodeNew,
+  .wrapperSeasonNew,
+  .wrapperCategoryNew,
+  .wrapperImageNew {
+    ul {
+      li {
+        color: $blue_info;
+      }
     }
+  }
 }
