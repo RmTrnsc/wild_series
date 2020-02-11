@@ -10,7 +10,17 @@
 
   <div class="wrapperImageEdit container">
 
-    <h1>Modifier l'image' : {{ image.episodePicture.title }}</h1>
+    <h1>Modifier l'image : {{ image.episodePicture.title }}</h1>
+    <div class="row">
+      <div class="col align-items-center">
+        <p>Image actuelle</p>
+        <ul class="list-group list-group-horizontal ml-2">
+          <li class="list-group-item text-center">
+            <img src="{{ image.picture }}" alt="{{ image.episodePicture.title }}">
+          </li>
+        </ul>
+      </div>
+    </div>
     {{ include('admin/image/_form.html.twig', {'button_label': 'Mise à jour'}) }}
     <div class="row text-left">
       <div class="col">

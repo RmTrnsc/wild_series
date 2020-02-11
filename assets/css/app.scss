@@ -72,7 +72,6 @@ body {
     }
   }
 
-  .wrapperImageNew,
   .wrapperEpisode {
     img {
       display: block;
@@ -83,12 +82,6 @@ body {
       margin-bottom: 2rem;
     }
 
-    .video {
-      margin-bottom: 2rem;
-    }
-  }
-
-  .wrapperEpisode {
     .episodesLink {
       text-decoration: none;
       color: $red_darken;
@@ -106,6 +99,14 @@ body {
   }
 
   .wrapperImageNew {
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 15rem;
+      height: 10.5rem;
+    }
+
     .listLink {
       text-decoration: none;
       color: $red_darken;
@@ -119,6 +120,13 @@ body {
     .listLink:hover {
       color: #fff;
       background-color: $red_darken;
+    }
+  }
+
+  .wrapperImageEdit {
+    img {
+      width: 25rem;
+      height: 17.5rem;
     }
   }
 
