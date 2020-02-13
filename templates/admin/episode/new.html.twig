@@ -13,7 +13,7 @@
         {% for episode in episodes %}
           <ul class="list-group list-group-horizontal ml-2">
             <li class="list-group-item">Épisode {{ episode.number }}, saison {{ episode.season.number }},
-              série {{ episode.season.program.title | title }}</li>
+              série {{ episode.season.program.slug | replace({'-' : ' '}) | title }}</li>
           </ul>
         {% endfor %}
       {% else %}

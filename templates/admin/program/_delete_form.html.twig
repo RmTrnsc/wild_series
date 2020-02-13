@@ -17,7 +17,7 @@
         </button>
       </div>
       <div class="modal-body" style="font-size: 20px">
-        Êtes-vous sûr de vouloir supprimer la série {{ program.title | title }} ?
+        Êtes-vous sûr de vouloir supprimer la série {{ program.slug | replace({'-' : ' '}) | title }} ?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>

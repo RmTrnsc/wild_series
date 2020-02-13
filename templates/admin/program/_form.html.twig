@@ -18,7 +18,7 @@
       {{ form_widget(form.poster) }}
     </div>
     <div class="col-6 text-center">
-      <img src="{{ program.poster }}" alt="{{ program.title }}" style="width: 10rem">
+      <img src="{{ program.poster }}" alt="{{ program.slug | replace({'-' : ' '}) | title }}" style="width: 10rem">
     </div>
   </div>
   <div class="row mt-3">

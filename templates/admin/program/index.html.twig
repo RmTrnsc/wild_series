@@ -26,7 +26,7 @@
 
             <tr>
               <td>{{ program.id }}</td>
-              <td>{{ program.title| title }}</td>
+              <td>{{ program.slug | replace({'-' : ' '}) | title }}</td>
               <td>{{ program.summary }}</td>
               <td><img src="{{ program.poster }}" alt="" style="width: 10rem"></td>
               <td class="d-flex justify-content-around">

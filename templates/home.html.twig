@@ -21,7 +21,7 @@
               <div class="card-body">
                 <img class="card-img-top"
                      src="{{ program.poster }}"
-                     alt="{{ program.title }}">
+                     alt="{{ program.slug | replace({'-' : ' '}) | title }}">
                 <div class="card-text text-center m-2">
                   <a href="{{ path('wild_show', {'slug': program.slug}) }}">En voir plus</a>
                 </div>

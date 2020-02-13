@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ program.title | title }} {% endblock %}
+{% block title %} {{ program.slug | replace({'-' : ' '}) | title }} {% endblock %}
 
 {% block body %}
 
   <div class="wrapperSlug container text-center">
 
     <div class="media mb-5">
-      <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
+      <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.slug | replace({'-' : ' '}) | title }} poster">
       <div class="media-body">
-        <h1 class="text-center mt-1">{{ program.title|replace({'-':' '})|title }}</h1>
+        <h1 class="text-center mt-1">{{ program.slug | replace({'-' : ' '}) | title }}</h1>
         <small class="text-muted">Categorie : {{ program.category.name }}</small>
         <p>{{ program.summary }}</p>
         <div class="d-flex flex-column ">

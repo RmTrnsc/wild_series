@@ -15,9 +15,9 @@ a{% extends 'base.html.twig' %}
         <div class="col-4">
           <div class="card text-center">
             <a href="{{ path('show_program',{'programName': program.title}) }}">
-              <p class="m-0">{{ program.title|replace({'-':' '})|title }}</p>
+              <p class="m-0">{{ program.slug | replace({'-' : ' '}) | title }}</p>
               <div class="card-body">
-                <img class="card-img-top" style="width: 18rem" src="{{ program.poster }}" alt="{{ program.title }}">
+                <img class="card-img-top" style="width: 18rem" src="{{ program.poster }}" alt="{{ program.slug | replace({'-' : ' '}) | title }}">
               </div>
             </a>
           </div>

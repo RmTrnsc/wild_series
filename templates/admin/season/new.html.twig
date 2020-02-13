@@ -13,7 +13,7 @@
         {% if seasons %}
           {% for season in seasons %}
             <ul class="list-group list-group-horizontal ml-2">
-              <li class="list-group-item">Saison {{ season.number }} : {{ season.program.title | title }}</li>
+              <li class="list-group-item">Saison {{ season.number }} : {{ season.program.slug | replace({'-' : ' '}) | title }}</li>
             </ul>
           {% endfor %}
         {% else %}

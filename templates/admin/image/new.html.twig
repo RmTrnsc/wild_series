@@ -17,7 +17,7 @@
                 <a data-fancybox="gallery" href="{{ image.picture }}"><img src="{{ image.picture }}"
                                                                            alt="{{ image.episodePicture.title }}">
                 </a>
-                <i>{{ image.episodePicture.season.program.title | title }} - {{ image.episodePicture.title }}</i>
+                <i>{{ image.episodePicture.season.program.slug | replace({'-' : ' '}) | title }} - {{ image.episodePicture.title }}</i>
               </li>
             </ul>
           {% endfor %}

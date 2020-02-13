@@ -25,7 +25,7 @@
           {% for season in seasons %}
             <tr>
               <td>{{ season.id }}</td>
-              <td>{{ season.program.title | title }}</td>
+              <td>{{ season.program.slug | replace({'-' : ' '}) | title }}</td>
               <td>{{ season.year }}</td>
               <td>{{ season.number }}</td>
               <td>{{ season.description | u.truncate(300,'...') }}</td>
