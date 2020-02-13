@@ -12,7 +12,7 @@
       {% if episodes %}
         {% for episode in episodes %}
           <ul class="list-group list-group-horizontal ml-2">
-            <li class="list-group-item">Épisode {{ episode.number }}, saison {{ episode.season.id }},
+            <li class="list-group-item">Épisode {{ episode.number }}, saison {{ episode.season.number }},
               série {{ episode.season.program.title | title }}</li>
           </ul>
         {% endfor %}
