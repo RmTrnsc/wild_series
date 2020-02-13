@@ -44,6 +44,11 @@ class Season
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $number;
+
     public function __construct()
     {
         $this->episodes = new ArrayCollection();
@@ -129,5 +134,17 @@ class Season
     public function setSlug(string $slug): void
     {
         $this->slug = $slug;
+    }
+
+    public function getNumber(): ?int
+    {
+        return $this->number;
+    }
+
+    public function setNumber(int $number): self
+    {
+        $this->number = $number;
+
+        return $this;
     }
 }

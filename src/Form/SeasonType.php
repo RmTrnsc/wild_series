@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Season;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,6 +17,7 @@ class SeasonType extends AbstractType
         $builder
           ->add('year', NumberType::class)
           ->add('description', TextareaType::class)
+          ->add('number', IntegerType::class)
           ->add('program', null, ['choice_label' => 'title']);
     }
 
