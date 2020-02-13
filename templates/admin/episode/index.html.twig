@@ -27,7 +27,7 @@
               <td>{{ episode.id }}</td>
               <td>{{ episode.title | capitalize }}</td>
               <td>{{ episode.season.program.title | title}}</td>
-              <td>{{ episode.season.id }} / {{ episode.season.year }}</td>
+              <td>{{ episode.season.number }} / {{ episode.season.year }}</td>
               <td>{{ episode.number }}</td>
               <td>{{ episode.synopsis | u.truncate(180, '...') }}</td>
               <td class="d-flex justify-content-around">

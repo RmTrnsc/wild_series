@@ -16,6 +16,7 @@
             <th>Id</th>
             <th>Série</th>
             <th>Année</th>
+            <th>Numéro de la saison</th>
             <th>Description</th>
             <th>Actions</th>
           </tr>
@@ -26,7 +27,8 @@
               <td>{{ season.id }}</td>
               <td>{{ season.program.title | title }}</td>
               <td>{{ season.year }}</td>
-              <td>{{ season.description | u.truncate(400,'...') }}</td>
+              <td>{{ season.number }}</td>
+              <td>{{ season.description | u.truncate(300,'...') }}</td>
               <td class="d-flex justify-content-around">
                 <a class="btn btn-outline-info" href="{{ path('season_edit', {'id': season.id}) }}"><i
                     class="far fa-edit"></i></a>
